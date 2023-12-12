@@ -6,17 +6,17 @@ pipeline {
         AWS_DEFAULT_REGION = "us-east-1"
     }
 
-  // tools {
+  tools {
   //   terraform 'terraform'
   //   // maven 'localMaven'
-  //   // jdk 'localJdk'
-  // }
+  jdk-11.0.1
+  }
 
   stages {
     stage('Git Checkout') {
       steps {
         echo 'Cloning the application code...'
-        git branch: 'main', url: 'https://github.com/jacodetunde/Machine-Learning-Jenkins-Docker-Kubernetes.git'
+        git branch: 'main', url: 'https://github.com/jacodetunde/ML-CICD_Pipeline.git'
       }
     }
 
@@ -170,25 +170,25 @@ pipeline {
       }
     }
   
-//     stage('approve destroy for terraform') {
-//             steps {
-//                 input "Do you want to Proceed to destroy terraform resources"
-//             }
-//         }
-//     stage('destroy') {
-//         steps {
-//             script{
-//               dir ('terraform/eks-cluster-ec2') {
-//               unstash 'terraform-plan'
-//               sh 'terraform destroy -auto-approve'
-//               }
-//            }
-//             }
-//         }
+    // stage('approve destroy for terraform') {
+    //         steps {
+    //             input "Do you want to Proceed to destroy terraform resources"
+    //         }
+    //     }
+    // stage('destroy') {
+    //     steps {
+    //         script{
+    //           dir ('terraform/eks-cluster-ec2') {
+    //           unstash 'terraform-plan'
+    //           sh 'terraform destroy -auto-approve'
+    //           }
+    //        }
+    //         }
+    //     }
 
 
-//   }
-// }
+  }
+}
 
 
 
